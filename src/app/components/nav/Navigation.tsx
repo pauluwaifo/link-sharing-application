@@ -9,6 +9,7 @@ const Navigation = () => {
   const path = usePathname();
   const [homeView, setHomeView] = useState<boolean>(false);
   const [profileView, setProfileView] = useState<boolean>(false);
+  const [display, setDisplay] = useState<boolean>(true);
 
   // handle links
   useEffect(() => {
@@ -22,11 +23,19 @@ const Navigation = () => {
     } else {
       setProfileView(false);
     }
+    if (path === "/login" || path === "/signup" || path === "/preview") {
+      setDisplay(false);
+    } else {
+      setDisplay(true);
+    }
   }, [path]);
-  
-  return (
-    <div className="h-[78px] rounded-[12px] p-[16px] flex flex-row m-[8px] bg-white items-center">
 
+  return (
+    <div
+      className={`h-[78px] rounded-[12px] p-[16px] ${
+        display ? "flex" : "hidden"
+      }  flex-row m-[8px] bg-white items-center`}
+    >
       <div className="lg:basis-7/12 md:basis-9/12 sm:basis-9/12 flex flex-row md:justify-between lg:justify-between sm:justify-around items-center">
         {/* large screen logo */}
         <div className="sm:hidden lg:block md:block">
@@ -74,10 +83,10 @@ const Navigation = () => {
         {/* link */}
         <Link
           className={`inline-block flex group flex-row items-center py-[11px] px-[27px] font-[600] text-[16px] leading-[24px] rounded-[8px] mx-[2px] text-[#633CFF] border border-[#633CFF] justify-center`}
-          href={"/"}
+          href={"/preview"}
         >
-         <span className="sm:hidden md:block lg:block">Preview</span> 
-         <EyeSvg className="sm:block lg:hidden md:hidden"/>
+          <span className="sm:hidden md:block lg:block">Preview</span>
+          <EyeSvg className="sm:block lg:hidden md:hidden" />
         </Link>
       </div>
     </div>

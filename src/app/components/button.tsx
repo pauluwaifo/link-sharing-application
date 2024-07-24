@@ -4,19 +4,21 @@ interface ButtonProps {
   children: ReactNode;
   className?: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
+  [key: string]: any;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   className,
   onClick,
+  ...rest
 }) => {
   return (
-    <div
-      onClick={onClick}
-      className={`block cursor-pointer w-100 text-center px-[11px] py-[12px] h-[46px] rounded-[8px] ${className}`}
+    <button
+      className={`block cursor-pointer text-center px-[11px] py-[12px] h-[46px] rounded-[8px] ${className}`}
+      {...rest}
     >
       {children}
-    </div>
+    </button>
   );
 };

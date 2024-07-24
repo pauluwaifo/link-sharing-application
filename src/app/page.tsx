@@ -1,13 +1,13 @@
 import React from "react";
-import SideContent from "./components/pages.components/home.components/side_content";
-import MainContent from "./components/pages.components/home.components/main/main_content";
+import SideContent from "./components/pages.components/side_content";
+import HomeComp from "./components/pages.components/home.components/Home";
 
 // login page
 const Home = () => {
   return (
     <div className="flex flex-row justify-center w-full ">
       <SideContent />
-      <MainContent />
+      <HomeComp />
     </div>
   );
 };

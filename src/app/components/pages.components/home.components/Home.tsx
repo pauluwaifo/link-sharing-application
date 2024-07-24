@@ -1,14 +1,14 @@
 "use client";
 
 import { useContext } from "react";
-import { Button } from "../../../button";
+import { Button } from "../../button";
 import AddedElement from "./added_elements";
 import Welcome from "./welcome_img";
 import ElementContext, {
   ElementContextType,
 } from "@/app/context/ElementContext";
 
-const MainContent = () => {
+const HomeComp = () => {
   const { elements, addNewElement } = useContext(
     ElementContext
   ) as ElementContextType;
@@ -38,7 +38,7 @@ const MainContent = () => {
 
         {/* link list */}
         {/* sec 2 */}
-        <div className="max-h-[500px] overflow-auto scrollbar-thumb-sky-700 scrollbar-track-sky-300">
+        <div className="max-h-[500px] h-[500px] overflow-auto scrollbar-thumb-sky-700 scrollbar-track-sky-300">
           {elements && elements.length > 0 ? <AddedElement /> : <Welcome />}
         </div>
 
@@ -53,4 +53,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export default HomeComp;

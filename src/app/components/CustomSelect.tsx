@@ -98,7 +98,7 @@ const CustomSelect: React.FC = () => {
 
       {/* content */}
       {isOpen && (
-        <div className="absolute left-[-15px] w-[560px] bg-white overflow-hidden mt-10 px-[16px] py-[5px] shadow-lg rounded-[8px] border border-[#D9D9D9]">
+        <div className="absolute left-[-15px] sm:w-[235px] md:w-[560px] lg:w-[560px] bg-white overflow-hidden mt-10 px-[16px] py-[5px] shadow-lg rounded-[8px] border border-[#D9D9D9]">
           {options.map((option) => (
             <div
               key={option.value}

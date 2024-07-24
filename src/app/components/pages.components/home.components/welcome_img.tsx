@@ -1,4 +1,4 @@
-import { HandOnPhone } from "../../../svgs";
+import { HandOnPhone } from "../../svgs";
 
 {
   /* lets get you started */

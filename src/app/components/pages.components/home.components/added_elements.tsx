@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useContext } from "react";
-import ElementContext, {
-  ElementContextType,
-} from "../../../../context/ElementContext";
+
+import ElementContext, { ElementContextType } from "@/app/context/ElementContext";
 import { LinkSvg, Menu2x } from "@/app/components/svgs";
 import { Label } from "@/app/components/form/label";
 import Wrapper from "@/app/components/form/wrapper";

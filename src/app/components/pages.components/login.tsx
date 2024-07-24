@@ -6,12 +6,13 @@ import Input from "../form/Input";
 import { Logo, Email, Password } from "../svgs";
 import { Label } from "../form/label";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "@/app/context/AuthContext";
 import { AuthContextType } from "@/app/context/AuthContext";
 
 function LoginComponent() {
   const { loading } = useContext(AuthContext) as AuthContextType;
+
 
   return (
     <div className=" md:w-[476px] md:h-[573px] lg:w-[476px] lg:h-[573px] sm:items-start md:items-center lg:items-center sm:w-full sm:h-screen flex flex-col sm:pt-10 sm:bg-white lg:bg-transparent">
@@ -57,6 +58,7 @@ function LoginComponent() {
                   name="Password"
                   id="Password"
                   placeholder="Enter your password"
+                  
                 />
               </Wrapper>
             </div>
@@ -73,7 +75,7 @@ function LoginComponent() {
 
             {/* footer link */}
             <div className="text-center items-center justify-center text-[#737373] p-[24px] flex lg:flex-row md:flex-row sm:flex-col">
-              <span>Don’t have an account?{" "}</span>
+              <span>Don’t have an account? </span>
               <Link className="text-[#633CFF] mx-1" href={"/signup"}>
                 Create account
               </Link>
