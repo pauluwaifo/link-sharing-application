@@ -1,13 +1,15 @@
 
 import { createContext } from 'react';
+import { UserType } from './AuthProvider';
 
 // Define the shape of the context value
 export interface AuthContextType {
   loading?: boolean;
-  user?: string[]
+  isAuth?: boolean;
+  user: UserType | null;
 }
 
 // Create the context with default value
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType>({ loading: true, user: null, isAuth: false });
 
 export default AuthContext;

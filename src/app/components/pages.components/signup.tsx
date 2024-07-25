@@ -6,7 +6,7 @@ import Input from "../form/Input";
 import { Logo, Email, Password } from "../svgs";
 import { Label } from "../form/label";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "@/app/context/AuthContext";
 import { AuthContextType } from "@/app/context/AuthContext";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -42,10 +42,10 @@ function SignupComponent() {
       ...prevState,
       [name]: value,
     }));
-    
-    setErrors(prevErrors => ({
+
+    setErrors((prevErrors) => ({
       ...prevErrors,
-      [name]: undefined
+      [name]: undefined,
     }));
   };
 
@@ -80,15 +80,12 @@ function SignupComponent() {
     }
     await createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
-        // Signed up
         const user = userCredential.user;
-        console.log(user)
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage, errorCode)
-        // ...
+        console.log(errorMessage, errorCode);
       });
     console.log("called");
   };
@@ -133,7 +130,7 @@ function SignupComponent() {
                   <div className="text-[#FF3939] basis-48  left-0 text-[12px] text-right">
                     {errors.email}
                   </div>
-                ) }
+                )}
               </Wrapper>
             </div>
             {/* create password */}
@@ -153,7 +150,7 @@ function SignupComponent() {
                     {errors.password}
                   </div>
                 )}
-              </Wrapper >
+              </Wrapper>
             </div>
             {/* confirm password */}
             <div className="mt-[24px]">

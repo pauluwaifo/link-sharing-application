@@ -3,6 +3,8 @@
 import UserDataComponent from "./user_data_comp";
 
 const ProfileComp = () => {
+
+
   return (
     <div className="lg:basis-7/12 md:basis-full sm:basis-full flex-wrap lg:overflow-auto md:overflow-auto sm:overflow-hidden bg-white m-4 rounded-[12px] flex flex-col items-center md:p-[40px] lg:p-[40px] sm:p-[24px]">
       {/* heading */}

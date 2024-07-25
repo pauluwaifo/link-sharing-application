@@ -3,14 +3,12 @@ import React, { ReactNode, MouseEventHandler } from "react";
 interface ButtonProps {
   children: ReactNode;
   className?: string;
-  onClick?: MouseEventHandler<HTMLDivElement>;
   [key: string]: any;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   className,
-  onClick,
   ...rest
 }) => {
   return (
