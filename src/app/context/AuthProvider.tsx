@@ -42,6 +42,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
       }
     );
 
+
     return () => unsubscribe();
   }, []);
 
