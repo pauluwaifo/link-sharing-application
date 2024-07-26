@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Skeleton } from "../svgs";
 import AuthContext from "@/app/context/AuthContext";
