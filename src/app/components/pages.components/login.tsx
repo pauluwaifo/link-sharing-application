@@ -159,7 +159,7 @@ function LoginComponent() {
                 } hover:shadow-[0_2px_30px_-8px_rgba(23,34,34,0.2)] text-white w-full`}
                 type="submit"
               >
-                Create new account
+                Login
               </Button>
             </div>
 

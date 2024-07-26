@@ -33,7 +33,6 @@ const UserDataComponent = () => {
   const { user } = useContext(AuthContext) as AuthContextType;
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
-  const [downloadURL, setDownloadURL] = useState<string | null>(null);
   const [data, setData] = useState<UserType>(initialUser);
   const [errors, setErrors] = useState<FormErrors>({});
   const userEmail = String(user && user.email);
@@ -100,7 +99,6 @@ const UserDataComponent = () => {
          url = await getDownloadURL(storageRef);
         console.log("File URL:", url);
 
-        setDownloadURL(url);
       }
 
       // Add user data (with or without file URL) to Firestore

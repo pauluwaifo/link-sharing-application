@@ -16,11 +16,12 @@ export interface UserType {
   uid: string;
 }
 
+
 const AuthProvider: React.FC<Props> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [isAuth, setIsAuth] = useState<boolean>(true);
   const [user, setUser] = useState<UserType | null>(null);
-  const [userInfo, setUserInfo] = useState<UserType | null>(null);
+  const [userInfo, setUserInfo] = useState<any>();
   const router = useRouter();
 
   useEffect(() => {
@@ -55,7 +56,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          console.log("Document data:", docSnap.data());
+          setUserInfo(docSnap.data())
         } else {
           console.log("No such document!");
         }
@@ -68,7 +69,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
   }, [isAuth, user]);
 
   return (
-    <AuthContext.Provider value={{ loading, user, isAuth }}>
+    <AuthContext.Provider value={{ loading, user, isAuth, userInfo }}>
       {children}
     </AuthContext.Provider>
   );

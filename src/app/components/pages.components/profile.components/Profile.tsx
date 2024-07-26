@@ -1,5 +1,4 @@
 // profile component
-
 import UserDataComponent from "./user_data_comp";
 
 const ProfileComp = () => {

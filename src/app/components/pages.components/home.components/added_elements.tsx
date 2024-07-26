@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
-import ElementContext, { ElementContextType } from "@/app/context/ElementContext";
+import ElementContext, {
+  ElementContextType,
+} from "@/app/context/ElementContext";
 import { LinkSvg, Menu2x } from "@/app/components/svgs";
 import { Label } from "@/app/components/form/label";
 import Wrapper from "@/app/components/form/wrapper";
@@ -13,6 +15,9 @@ const AddedElement: React.FC = () => {
   const { elements, deleteElement } = useContext(
     ElementContext
   ) as ElementContextType;
+
+  const [platform, setPlatform] = useState<string>("");
+
   return (
     <div className="w-full scrollbar-thin ">
       {elements?.map((element) => (
@@ -45,12 +50,14 @@ const AddedElement: React.FC = () => {
             <div className="mt-[12px]">
               <Label htmlFor="Link">Link</Label>
               <Wrapper>
-                <LinkSvg className="basis-10" />
+                <LinkSvg className="basis-10 w-" />
                 <Input
                   type="url"
                   name="Link"
                   id="Link"
                   placeholder="e.g. https://www.youtube.com/benwright"
+                  pattern="http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?"
+                  required
                 />
               </Wrapper>
             </div>
